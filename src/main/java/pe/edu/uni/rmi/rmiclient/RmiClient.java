@@ -26,8 +26,10 @@ public class RmiClient {
         try {
             Registry registry = LocateRegistry.getRegistry(ipServer, portServer);
             serverInterface = (RmiInterface)(registry.lookup("operation"));
-            int resultado = serverInterface.calcularSuma(3, 4);
-            System.out.println("Suma: " + resultado);
+            int suma = serverInterface.calcularSuma(3, 4);
+            int resta = serverInterface.calcularResta(5, 8);
+            System.out.println("Suma: " + suma);
+            System.out.println("Resta: " + resta);
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(RmiClient.class.getName()).log(Level.SEVERE, null, ex);
         }
